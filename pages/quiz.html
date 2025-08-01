@@ -6,6 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Landing Page Tailwind CSS</title>
 	<link rel="stylesheet" href="../public/css/output.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 	<!-- header start -->
@@ -23,38 +24,49 @@
 	<!-- hero section start -->
 	<section id="home" class="bg-gradient-to-b from-sky-300 to-sky-100">
 		<div class="container mx-auto">
-			<div class="flex flex-wrap flex-col md:flex-row items-center justify-center gap-12 md:gap-0 min-h-screen">
-				<div class="w-full max-auto md:w-1/2 text-center relative">
-					<h1 class="text-4xl md:text-5xl font-bold mb-4 text-slate-800">Quiz ?/?</h1>
+			<div class="flex flex-col pb-24 items-center justify-center min-h-screen">
+        <div class="w-full max-auto md:w-1/2 text-center relative">
+          <div class="absolute right-0 top-12 p-2" id="buttonChangeQuestion">
+            <i class="fa-solid fa-arrows-rotate"></i>
+          </div>
+          <p class="text-lg font-bold mb-8 py-2 text-slate-800">Quiz <span id="currentQuiz">1</span>/<span id="totalQuiz">-</span></p>
+					<h1 class="text-4xl md:text-5xl font-bold mb-4 text-slate-800" id="question"></h1>
+					<p class="text-slate-800 md:text-base">terjemahkan artinya</p>
 					<p class="text-slate-800 md:text-base mb-8">pilih atau tulis jawaban yang benar</p>
 				
-          <form action="quiz.html" id="chooseClass" method="post" onsubmit="return send();" >
-            <ul class="grid gap-2 md:grid-cols-3 px-8 md:px-0">
+          <form action="quiz.html" id="chooseClass" method="post" onsubmit="return send();" class="relative">
+            <div class="absolute right-0 -top-11 p-2" id="buttonChangeAnswer">
+              <i class="fa-solid fa-arrows-rotate"></i>
+            </div>
+            <ul class="grid gap-2 md:grid-cols-3 px-8 md:px-0 hidden" id="inputSelect">
               <li>
                 <input type="radio" id="kelas-1" name="choice" value="kelas-1" class="opacity-0 absolute peer" />
-                <label for="kelas-1" class="inline-flex items-center justify-between w-full py-3 text-gray-500 bg-transparent border border-blue-600 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:bg-blue-600 peer-checked:text-white hover:text-gray-600 hover:bg-blue-400" onclick="reset_msg();">                           
+                <label for="kelas-1" class="inline-flex items-center justify-between w-full py-3 text-gray-500 bg-transparent border border-blue-600 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:bg-blue-600 peer-checked:text-white hover:text-gray-600 hover:bg-blue-400">                           
                     <div class="w-full text-center text-lg font-semibold">
-                      Kelas 1
+                      Jawaban 1
                     </div>
                 </label>
               </li>
               <li>
                 <input type="radio" id="kelas-2" name="choice" value="kelas-2" class="opacity-0 absolute peer" >
-                <label for="kelas-2" class="inline-flex items-center justify-between w-full py-3 text-gray-500 bg-transparent border border-blue-600 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:bg-blue-600 peer-checked:text-white hover:text-gray-600 hover:bg-blue-400" onclick="reset_msg();">
+                <label for="kelas-2" class="inline-flex items-center justify-between w-full py-3 text-gray-500 bg-transparent border border-blue-600 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:bg-blue-600 peer-checked:text-white hover:text-gray-600 hover:bg-blue-400">
                     <div class="w-full text-center text-lg font-semibold">
-                      Kelas 2
+                      Jawaban 2
                     </div>
                 </label>
               </li>
               <li>
                 <input type="radio" id="kelas-3" name="choice" value="kelas-3" class="opacity-0 absolute peer" >
-                <label for="kelas-3" class="inline-flex items-center justify-between w-full py-3 text-gray-500 bg-transparent border border-blue-600 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:bg-blue-600 peer-checked:text-white hover:text-gray-600 hover:bg-blue-400" onclick="reset_msg();">
+                <label for="kelas-3" class="inline-flex items-center justify-between w-full py-3 text-gray-500 bg-transparent border border-blue-600 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:bg-blue-600 peer-checked:text-white hover:text-gray-600 hover:bg-blue-400">
                     <div class="w-full text-center text-lg font-semibold">
-                      Kelas 3
+                      Jawaban 3
                     </div>
                 </label>
               </li>
-            </ul>
+            </ul> 
+            <div class="mb-6 px-8 hidden" id="inputText">
+                <input type="text" id="large-input" class="block w-full p-4 text-gray-600 border border-blue-600 rounded-lg bg-transparent text-base focus:ring-blue-500 focus:border-blue-500" name="choice">
+            </div>
           </form>
           <div id="msg" class="absolute w-full -bottom-12 text-red-600"></div>
 				</div>
@@ -63,11 +75,9 @@
 	</section>
 	<!-- hero section end -->
 
-  <a id="response" class="absolute bottom-28 left-4 right-4 bg-blue-600 text-white font-bold py-4 text-center rounded-lg shadow-lg backdrop-blur cursor-pointer">ambil data</a>
-  <button id="submitButton" type="submit" form="chooseClass" class="absolute bottom-6 left-4 right-4 bg-blue-600 text-white font-bold py-4 text-center rounded-lg shadow-lg backdrop-blur cursor-pointer">Selanjutnya</button>
+  <!-- <a id="response" class="absolute bottom-28 left-4 right-4 bg-blue-600 text-white font-bold py-4 text-center rounded-lg shadow-lg backdrop-blur cursor-pointer">ambil data</a> -->
+  <button id="submitButton" class="absolute bottom-6 left-4 right-4 bg-blue-600 text-white font-bold py-4 text-center rounded-lg shadow-lg backdrop-blur cursor-pointer">Selanjutnya</button>
 	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.2/xlsx.full.min.js"></script>
-	<script src="../public/js/index.js"></script>
-	<script src="../public/js/import.js"></script>
+	<script src="../public/js/quiz.js"></script>
 </body>
 </html>

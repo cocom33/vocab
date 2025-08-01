@@ -30,7 +30,7 @@
 					<p class="text-slate-800 text-sm md:text-base mb-8">Pilih level yang kamu inginkan!</p>
 				
           <form action="quiz.html" id="chooseClass" method="post" onsubmit="return send();" >
-            <ul class="grid gap-2 md:grid-cols-3 px-8 md:px-0">
+            <ul class="grid gap-2 px-8 md:px-0">
               <li>
                 <input type="radio" id="kelas-1" name="choice" value="kelas-1" class="opacity-0 absolute peer" />
                 <label for="kelas-1" class="inline-flex items-center justify-between w-full py-3 text-gray-500 bg-transparent border border-blue-600 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:bg-blue-600 peer-checked:text-white hover:text-gray-600 hover:bg-blue-400" onclick="reset_msg();">                           
@@ -64,7 +64,7 @@
 	</section>
 	<!-- hero section end -->
 
-  <button href="quiz_start.html" id="submitButton" type="submit" form="chooseClass" class="absolute bottom-6 left-4 right-4 bg-blue-600 text-white font-bold py-4 text-center rounded-lg shadow-lg backdrop-blur cursor-pointer">Mulai</button>
+  <button href="quiz_start.html" id="submitButton" type="submit" form="chooseClass" class="absolute bottom-6 left-4 right-4 md:width-40 bg-blue-600 text-white font-bold py-4 text-center rounded-lg shadow-lg backdrop-blur cursor-pointer">Mulai</button>
 	
 </body>
 </html>
