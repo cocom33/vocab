@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Landing Page Tailwind CSS</title>
+	<link rel="stylesheet" href="../public/css/output.css">
+</head>
+<body>
+	<!-- header start -->
+	<header class="absolute w-full top-0">
+		<div class="container mx-auto">
+			<div class="flex justify-between items-center relative">
+				<div class="px-4">
+					<a href="" class="font-bold text-xl text-sky-800 block py-6">value!</a>
+				</div>
+				<div class="flex items-center px-4">
+					<button id="hamburger" name="hamburger" type="button" class="block absolute right-4 md:hidden">
+						<span class="hamburger-line transition duration-200 ease-in-out origin-top-left"></span>
+						<span class="hamburger-line transition duration-200 ease-in-out"></span>
+						<span class="hamburger-line transition duration-200 ease-in-out origin-bottom-left"></span>
+					</button>
+					
+					<nav id="nav-menu" class="">
+						<ul class="flex gap-5">
+							<li class="group border border-blue-600 rounded-lg">
+								<a href="#" class="font-medium text-center text-blue-600 px-8 py-2 flex group-hover:bg-blue-600 duration-300 group-hover:text-white">Home</a>
+							</li>
+							<li class="group border border-blue-600 rounded-lg">
+								<a href="quiz_start.html" class="font-medium text-center text-blue-600 px-8 py-2 flex group-hover:bg-blue-600 duration-300 group-hover:text-white">Quiz</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- header end -->
+	
+	<!-- hero section start -->
+	<section id="home" class="bg-gradient-to-b from-sky-300 to-sky-100">
+		<div class="container mx-auto">
+			<div class="flex flex-wrap flex-col md:flex-row items-center justify-center gap-12 md:gap-0 min-h-screen">
+				<div class="w-full md:w-1/2 text-center md:text-start">
+					<h1 class="text-4xl md:text-5xl font-bold mb-6 text-slate-800">Start your disini!</h1>
+					<p class="text-slate-800 text-sm md:text-base mb-8">Plan and book your perfect trip with expert advice, travel tips, destination information and inspiration from us!</p>
+					<div class="flex space-x-3 justify-center items-center md:justify-start">
+						<a href="quiz_start.html" class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-transparent border border-transparent hover:border-blue-600 hover:text-blue-600 font-medium duration-300">Mulai!</a>
+						<a href="">
+							<img src="../public/img/play-store.svg" alt="" class="h-full">
+						</a>
+						<a href="">
+							<img src="../public/img/app-store.svg" alt="" class="h-full">
+						</a>
+					</div>
+				</div>
+				<div class="w-full md:w-1/2 relative flex justify-center md:justify-end">
+					<div class="rounded-full w-[80px] h-[80px] absolute bg-sky-400 -top-4 md:top-0 right-40 md:right-20"></div>
+					<div class="shadow-lg rounded-lg w-48 md:w-[215px] -bottom-20 md:-bottom-10 lg:bottom-0 left-12 lg:left-20 xl:left-30 px-3 py-2 absolute bg-white z-20">
+						<h3 class="text-[14px] md:text-sm font-medium text-slate-800">Explore Labuhan Bajo</h3>
+						<p class="text-slate-500 text-[10px] text-xs md:mb-3">NTT Indonesia</p>
+					</div>
+					<div class="w-[380px] h-[380px] md:w-[420px] md:h-[420px] flex items-center justify-center overflow-hidden rounded-full background-circle relative -z-9 backdrop-blur">
+						<img src="../public/img/hero.png" alt="" class="h-[90%] right-50 translate-x-50 bottom-0 absolute z-10">
+						<div class="background-circle w-[280px] h-[280px] md:w-[320px] md:h-[320px] rounded-full flex items-center justify-center backdrop-blur absolute">
+							<div class="background-circle w-[180px] h-[180px] md:w-[220px] md:h-[220px] rounded-full absolute"></div>
+						</div>
+						<div class="rounded-full w-[80px] h-[80px] absolute bg-orange-400 top-24 left-10 -z-40"></div>
+						<div class="rounded-full w-[50px] h-[50px] absolute bg-orange-400 top-60 right-8 -z-40"></div>
+					</div>
+					<div class="shadow-lg rounded-lg w-36 md:w-[150px] top-0 md:top-10 right-12 sm:right-5 md:-right-22 lg:right-0 px-3 py-2 absolute bg-white z-20">
+						<h3 class="text-[12px] font-medium md:mb-1 text-slate-800">La Pirate Hotel</h3>
+						<p class="text-slate-500 text-[10px]">NTT Indonesia</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- hero section end -->
+	
+	<script src="public/js/script.js"></script>
+</body>
+</html>

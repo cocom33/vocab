@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Landing Page Tailwind CSS</title>
+	<link rel="stylesheet" href="../public/css/output.css">
+</head>
+<body>
+	<!-- header start -->
+	<header class="absolute w-full top-0">
+		<div class="container mx-auto">
+			<div class="flex justify-between items-center relative">
+				<div class="px-4">
+					<a href="" class="font-bold text-xl text-sky-800 block py-6">value!</a>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- header end -->
+	
+	<!-- hero section start -->
+	<section id="home" class="bg-gradient-to-b from-sky-300 to-sky-100">
+		<div class="container mx-auto">
+			<div class="flex flex-wrap flex-col md:flex-row items-center justify-center gap-12 md:gap-0 min-h-screen">
+				<div class="w-full max-auto md:w-1/2 text-center relative">
+					<h1 class="text-4xl md:text-5xl font-bold mb-4 text-slate-800">Quiz ?/?</h1>
+					<p class="text-slate-800 md:text-base mb-8">pilih atau tulis jawaban yang benar</p>
+				
+          <form action="quiz.html" id="chooseClass" method="post" onsubmit="return send();" >
+            <ul class="grid gap-2 md:grid-cols-3 px-8 md:px-0">
+              <li>
+                <input type="radio" id="kelas-1" name="choice" value="kelas-1" class="opacity-0 absolute peer" />
+                <label for="kelas-1" class="inline-flex items-center justify-between w-full py-3 text-gray-500 bg-transparent border border-blue-600 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:bg-blue-600 peer-checked:text-white hover:text-gray-600 hover:bg-blue-400" onclick="reset_msg();">                           
+                    <div class="w-full text-center text-lg font-semibold">
+                      Kelas 1
+                    </div>
+                </label>
+              </li>
+              <li>
+                <input type="radio" id="kelas-2" name="choice" value="kelas-2" class="opacity-0 absolute peer" >
+                <label for="kelas-2" class="inline-flex items-center justify-between w-full py-3 text-gray-500 bg-transparent border border-blue-600 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:bg-blue-600 peer-checked:text-white hover:text-gray-600 hover:bg-blue-400" onclick="reset_msg();">
+                    <div class="w-full text-center text-lg font-semibold">
+                      Kelas 2
+                    </div>
+                </label>
+              </li>
+              <li>
+                <input type="radio" id="kelas-3" name="choice" value="kelas-3" class="opacity-0 absolute peer" >
+                <label for="kelas-3" class="inline-flex items-center justify-between w-full py-3 text-gray-500 bg-transparent border border-blue-600 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:bg-blue-600 peer-checked:text-white hover:text-gray-600 hover:bg-blue-400" onclick="reset_msg();">
+                    <div class="w-full text-center text-lg font-semibold">
+                      Kelas 3
+                    </div>
+                </label>
+              </li>
+            </ul>
+          </form>
+          <div id="msg" class="absolute w-full -bottom-12 text-red-600"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- hero section end -->
+
+  <a id="response" class="absolute bottom-28 left-4 right-4 bg-blue-600 text-white font-bold py-4 text-center rounded-lg shadow-lg backdrop-blur cursor-pointer">ambil data</a>
+  <button id="submitButton" type="submit" form="chooseClass" class="absolute bottom-6 left-4 right-4 bg-blue-600 text-white font-bold py-4 text-center rounded-lg shadow-lg backdrop-blur cursor-pointer">Selanjutnya</button>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.2/xlsx.full.min.js"></script>
+	<script src="../public/js/index.js"></script>
+	<script src="../public/js/import.js"></script>
+</body>
+</html>
