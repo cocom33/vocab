@@ -1,7 +1,7 @@
 totalQuizUi = document.getElementById('totalQuiz')
 currentQuizUi = document.getElementById('currentQuiz')
 question = document.getElementById('question')
-romanji = document.getElementById('romanji')
+romanji = document.getElementById('romanji');
 inputSelect = document.getElementById('inputSelect')
 inputText = document.getElementById('inputText')
 buttonChangeAnswer = document.getElementById('buttonChangeAnswer')
@@ -176,7 +176,7 @@ function getRandomKanji(quizzes, currentQuiz, type) {
   }
 
   // Gabungkan fixedKanji dan randomKanji
-  return shuffleQuiz([fixedKanji, ...randomKanji]);
+  return shuffleQuiz([fixedKanji, ...randomKanji])
 }
 
 function generateKanjiChoices(selectedKanji) {
@@ -214,7 +214,7 @@ function generateKanjiChoices(selectedKanji) {
   });
 }
 
-function shuffleQuiz(quiz) {
+function shuffleQuiz(quiz) { 
   let currentIndex = quiz.length;
   let randomIndex;
 
