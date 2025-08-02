@@ -9,45 +9,54 @@ submitButton = document.getElementById('submitButton')
 
 typeQuestion = localStorage.getItem('typeQuestion');
 typeAnswer = localStorage.getItem('typeAnswer');
+getQuiz = localStorage.getItem('allCurrentQuiz');
+getHistoryQuiz = localStorage.getItem('getHistoryQuiz');
+currentQuiz = parseInt(localStorage.getItem('currentQuiz')) || 0;
+correctQuiz = parseInt(localStorage.getItem('correctQuiz')) || 0;
+inCorrectQuiz = parseInt(localStorage.getItem('inCorrectQuiz')) || 0;
 
-currentQuiz = 1
+thisHistory = []
 totalQuiz = 1
-correctQuiz = 0
-inCorrectQuiz = 0
 quiz = []
 historyAnswer = []
 choice = []
 
 document.addEventListener('DOMContentLoaded', async function () {
-    try {
-        // get data kanji dan data local 
-        const data = await listKanji();
-        console.log('input text ', typeQuestion,  typeQuestion)
-        if (typeQuestion == null) {
-          localStorage.setItem('typeQuestion', 'kanji');
-          typeQuestion = 'kanji'
-        }
-        if (typeAnswer == null) {
-          localStorage.setItem('typeAnswer', 'select');
-        }
-        typeAnswer == 'select' ? inputSelect.classList.remove("hidden") : inputText.classList.remove("hidden")
-        
-        // set quiz
-        quiz = data
-        totalQuizUi.innerHTML = data.length
-        totalQuiz = data.length
-        question.innerHTML = typeQuestion == 'kanji' ? quiz[currentQuiz -1]["kanji"] : quiz[currentQuiz -1]["id"]
-        choice = getRandomKanji(quiz, currentQuiz, typeQuestion == "id" ? "kanji" : "id")
-        console.log(choice)
-        
-        // set function 
-        generateKanjiChoices(choice)
-        buttonChangeQuestion.addEventListener('click', changeQuestion);
-        buttonChangeAnswer.addEventListener('click', changeAnswer);
-        submitButton.addEventListener('click', storeAnswer)
-    } catch (error) {
-        console.error('Error mengambil data:', error);
+  try {
+    // get data kanji dan data local 
+    if (getQuiz == null) {
+      const resQuiz = await listKanji();
+      getQuiz = JSON.stringify(resQuiz)
+      localStorage.setItem('allCurrentQuiz', getQuiz);
     }
+    if (typeQuestion == null) {
+      localStorage.setItem('typeQuestion', 'kanji');
+      typeQuestion = 'kanji'
+    }
+    if (typeAnswer == null) localStorage.setItem('typeAnswer', 'select');
+    if (currentQuiz == 0) localStorage.setItem('currentQuiz', 0);
+    if (correctQuiz == 0) localStorage.setItem('correctQuiz', 0);
+    if (inCorrectQuiz == 0) localStorage.setItem('inCorrectQuiz', 0);
+    if (getHistoryQuiz == null) localStorage.setItem('getHistoryQuiz', null);
+    
+    typeAnswer == 'select' ? inputSelect.classList.remove("hidden") : inputText.classList.remove("hidden")
+    
+    // set quiz
+    quiz = JSON.parse(getQuiz)
+    totalQuizUi.innerHTML = quiz.length
+    currentQuizUi.innerHTML = parseInt(currentQuiz)+1
+    totalQuiz = quiz.length
+    question.innerHTML = typeQuestion == 'kanji' ? quiz[currentQuiz]["kanji"] : quiz[currentQuiz]["id"]
+    choice = getRandomKanji(quiz, currentQuiz, typeQuestion == "id" ? "kanji" : "id")
+    
+    // set function 
+    generateKanjiChoices(choice)
+    buttonChangeQuestion.addEventListener('click', changeQuestion);
+    buttonChangeAnswer.addEventListener('click', changeAnswer);
+    submitButton.addEventListener('click', storeAnswer)
+  } catch (error) {
+      console.error('Error mengambil data:', error);
+  }
 });
 
 async function listKanji() {
@@ -63,7 +72,6 @@ function changeQuestion() {
   question.innerHTML = typeQuestion == 'kanji' ? quiz[currentQuiz -1]["kanji"] : quiz[currentQuiz -1]["id"]
   choice = getRandomKanji(quiz, currentQuiz, typeQuestion == "id" ? "kanji" : "id")
   generateKanjiChoices(choice)
-  console.log(choice)
 }
 
 function changeAnswer() {
@@ -85,19 +93,78 @@ function changeAnswer() {
 }
 
 function storeAnswer() {
-  if (currentQuiz < totalQuiz) {
+  valid = checkAnswer(currentQuiz)  
+  if (!valid) return 
+  
+  if (currentQuiz+1 < totalQuiz) {
     currentQuiz++
-    console.log(currentQuiz)
     
-    currentQuizUi.innerHTML = currentQuiz
-    question.innerHTML = typeQuestion == 'kanji' ? quiz[currentQuiz -1]["kanji"] : quiz[currentQuiz -1]["id"]
+    currentQuizUi.innerHTML = currentQuiz+1
+    localStorage.setItem('currentQuiz', currentQuiz)
+    question.innerHTML = typeQuestion == 'kanji' ? quiz[currentQuiz]["kanji"] : quiz[currentQuiz]["id"]
     choice = getRandomKanji(quiz, currentQuiz, typeQuestion == "id" ? "kanji" : "id")
     generateKanjiChoices(choice)
   } else {
     alert('Selamat, Anda telah menyelesaikan quiz!')
+
+    thisHistory = getHistoryQuiz == "" ? JSON.parse(getHistoryQuiz) : []
+    thisHistory.push({
+      correct: correctQuiz,
+      inCorrect: inCorrectQuiz,
+      totalQuiz: quiz.length,
+      date: new Date().toLocaleDateString("id"),
+    })
+    localStorage.setItem('getHistoryQuiz', JSON.stringify(thisHistory))
+    console.log(thisHistory)
+    clearAll()
     window.location.href = "./quiz_finish.html";
   }
 }
+
+function checkAnswer(currentQuiz) {
+  // const activeRadioGroup = document.getElementById('inputSelect');
+  const activeTextInput = document.getElementById('inputJawaban');
+  let valid = false;
+  let input = ""
+
+  // Jika radio aktif (tidak hidden)
+  if (!inputSelect.classList.contains('hidden')) {
+    const selected = document.querySelector('input[name="choice"]:checked');
+    valid = selected; // true jika ada yg dipilih
+    if (valid) input = selected.value;
+  }
+
+  // Jika input text aktif (tidak hidden)
+  if (!inputText.classList.contains('hidden')) {
+    const inputVal = activeTextInput.value.trim();
+    valid = inputVal !== '';
+    input = inputVal;
+  }
+
+  if (!valid) {
+    alert('Silakan pilih atau isi jawaban terlebih dahulu.');
+    return false;
+  }
+  
+  if (typeQuestion == "kanji") {
+    if (quiz[currentQuiz]["id"] == input) {
+      correctQuiz++
+      localStorage.setItem('correctQuiz', correctQuiz)
+    } else {
+      inCorrectQuiz++
+      localStorage.setItem('inCorrectQuiz', inCorrectQuiz)
+    };
+  } else {
+    if (quiz[currentQuiz]["kanji"] == input) {
+      correctQuiz++
+      localStorage.setItem('correctQuiz', correctQuiz)
+    } else {
+      inCorrectQuiz++
+      localStorage.setItem('inCorrectQuiz', inCorrectQuiz)
+    };
+  }
+  return true
+};
 
 function getRandomKanji(quizzes, currentQuiz, type) {
   // Pilih 1 data berdasarkan index tertentu
@@ -151,4 +218,9 @@ function generateKanjiChoices(selectedKanji) {
       li.appendChild(label);
       inputSelect.appendChild(li);
   });
+}
+
+function clearAll() {
+  localStorage.removeItem('allCurrentQuiz');
+  localStorage.removeItem('currentQuiz');
 }

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Landing Page Tailwind CSS</title>
+	<link rel="stylesheet" href="../public/css/output.css">
+	<script src="../public/js/index.js"></script>
+</head>
+<body>
+	<!-- header start -->
+	<header class="absolute w-full top-0">
+		<div class="container mx-auto">
+			<div class="flex justify-between items-center relative">
+				<div class="px-4">
+					<a href="home.html" class="font-bold text-xl text-sky-800 block py-6">value!</a>
+				</div>
+				<div class="flex items-center px-4">
+					<button id="hamburger" name="hamburger" type="button" class="block absolute right-4 md:hidden">
+						<span class="hamburger-line transition duration-200 ease-in-out origin-top-left"></span>
+						<span class="hamburger-line transition duration-200 ease-in-out"></span>
+						<span class="hamburger-line transition duration-200 ease-in-out origin-bottom-left"></span>
+					</button>
+					
+					<nav id="nav-menu" class="">
+						<ul class="flex gap-5">
+							<li class="group border border-blue-600 rounded-lg">
+								<a href="home.html" class="font-medium text-center text-blue-600 px-8 py-2 flex group-hover:bg-blue-600 duration-300 group-hover:text-white">Home</a>
+							</li>
+							<li class="group border border-blue-600 rounded-lg">
+								<a href="quiz_start.html" class="font-medium text-center text-blue-600 px-8 py-2 flex group-hover:bg-blue-600 duration-300 group-hover:text-white">Quiz</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- header end -->
+	
+	<!-- hero section start -->
+	<section id="home" class="bg-gradient-to-b from-sky-300 to-sky-100">
+		<div class="container mx-auto">
+			<div class="flex flex-wrap flex-col md:flex-row items-center justify-center gap-12 md:gap-0 min-h-screen">
+				<div class="w-full max-auto lg:w-2/3 text-center relative">
+					<h1 class="text-4xl md:text-5xl font-bold mb-6 text-slate-800">History!</h1>
+					<p class="text-slate-800 text-sm md:text-base mb-8">summary quiz yang sudah kamu kerjakan!</p>
+				
+          <div class="relative w-full overflow-x-auto shadow-md sm:rounded-lg">
+            <p class="text-slate-800 text-start mb-3">kamu sudah mengerjakan : <span id="totalQuiz"></span> quiz</p>
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-200">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">
+                          Tanggal Pengerjaan
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            <div class="flex items-center">
+                                Jawaban Benar
+                            </div>
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            <div class="flex items-center">
+                                Jawaban Salah
+                            </div>
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            <div class="flex items-center">
+                                Total Quiz
+                            </div>
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            <span class="sr-only">Edit</span>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="history-table-body">
+                  <tr class="bg-white border-b border-gray-200 hover:bg-gray-100">
+                    <!-- <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                        Apple MacBook Pro 17"
+                    </th> -->
+                    <td class="px-6 py-4" colspan="5">
+                        kamu belum memiliki history
+                    </td>
+                  </tr>
+                </tbody>
+            </table>
+          </div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- hero section end -->
+
+  <a href="home.html" class="absolute bottom-6 left-4 right-4 md:width-40 bg-blue-600 text-white font-bold py-4 text-center rounded-lg shadow-lg backdrop-blur cursor-pointer">Kembali</a>
+	
+	<script src="../public/js/history.js"></script>
+</body>
+</html>

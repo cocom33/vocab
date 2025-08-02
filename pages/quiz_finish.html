@@ -13,11 +13,24 @@
 	<section id="home" class="bg-gradient-to-b from-sky-300 to-sky-100">
 		<div class="container mx-auto">
       <div class="flex flex-wrap flex-col items-center justify-center md:gap-0 min-h-screen">
-        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-slate-800">Selesai 🎉🎉</h1>
-        <a href="./quiz_start.html" class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-transparent border border-transparent hover:border-blue-600 hover:text-blue-600 font-medium duration-300">kerjakan lagi!</a>
+        <div class="text-center mb-8">
+          <h1 class="text-4xl md:text-5xl font-bold mb-6 text-slate-800">Selesai🎉🎉</h1>
+          <p class="text-slate-800 mb-3">ini dia hasil dari quiz kamu:</p>
+          <p class="text-slate-800 font-bold text-lg mb-1">total jawaban benar: 10</p>
+          <p class="text-slate-800 font-bold text-lg mb-1">total jawaban salah: 10</p>
+        </div>
+        
+        <a href="./quiz_start.html" id="tryAgain" onclick="tryAgain();" class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-transparent border border-transparent hover:border-blue-600 hover:text-blue-600 font-medium duration-300">kerjakan lagi!</a>
       </div>
 		</div>
 	</section>
 	<!-- hero section end -->
+	
+	<script>
+    function tryAgain() {
+      localStorage.removeItem('correctQuiz');
+      localStorage.removeItem('inCorrectQuiz');
+    }
+  </script>
 </body>
 </html>

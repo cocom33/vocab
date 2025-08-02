@@ -14,7 +14,7 @@
 		<div class="container mx-auto">
 			<div class="flex justify-between items-center relative">
 				<div class="px-4">
-					<a href="" class="font-bold text-xl text-sky-800 block py-6">value!</a>
+					<a href="home.html" class="font-bold text-xl text-sky-800 block py-6">value!</a>
 				</div>
 			</div>
 		</div>
@@ -29,7 +29,7 @@
           <div class="absolute right-0 top-12 p-2" id="buttonChangeQuestion">
             <i class="fa-solid fa-arrows-rotate"></i>
           </div>
-          <p class="text-lg font-bold mb-8 py-2 text-slate-800">Quiz <span id="currentQuiz">1</span>/<span id="totalQuiz">-</span></p>
+          <p class="text-lg font-bold mb-8 py-2 text-slate-800">Quiz <span id="currentQuiz">-</span>/<span id="totalQuiz">-</span></p>
 					<h1 class="text-4xl md:text-5xl font-bold mb-4 text-slate-800" id="question"></h1>
 					<p class="text-slate-800 md:text-base">terjemahkan artinya</p>
 					<p class="text-slate-800 md:text-base mb-8">pilih atau tulis jawaban yang benar</p>
@@ -39,33 +39,17 @@
               <i class="fa-solid fa-arrows-rotate"></i>
             </div>
             <ul class="grid gap-2 md:grid-cols-3 px-8 md:px-0 hidden" id="inputSelect">
-              <li>
+              <!-- <li>
                 <input type="radio" id="kelas-1" name="choice" value="kelas-1" class="opacity-0 absolute peer" />
                 <label for="kelas-1" class="inline-flex items-center justify-between w-full py-3 text-gray-500 bg-transparent border border-blue-600 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:bg-blue-600 peer-checked:text-white hover:text-gray-600 hover:bg-blue-400">                           
                     <div class="w-full text-center text-lg font-semibold">
                       -
                     </div>
                 </label>
-              </li>
-              <li>
-                <input type="radio" id="kelas-2" name="choice" value="kelas-2" class="opacity-0 absolute peer" >
-                <label for="kelas-2" class="inline-flex items-center justify-between w-full py-3 text-gray-500 bg-transparent border border-blue-600 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:bg-blue-600 peer-checked:text-white hover:text-gray-600 hover:bg-blue-400">
-                    <div class="w-full text-center text-lg font-semibold">
-                      -
-                    </div>
-                </label>
-              </li>
-              <li>
-                <input type="radio" id="kelas-3" name="choice" value="kelas-3" class="opacity-0 absolute peer" >
-                <label for="kelas-3" class="inline-flex items-center justify-between w-full py-3 text-gray-500 bg-transparent border border-blue-600 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:bg-blue-600 peer-checked:text-white hover:text-gray-600 hover:bg-blue-400">
-                    <div class="w-full text-center text-lg font-semibold">
-                      -
-                    </div>
-                </label>
-              </li>
+              </li> -->
             </ul> 
             <div class="mb-6 px-8 hidden" id="inputText">
-                <input type="text" id="large-input" class="block w-full p-4 text-gray-600 border border-blue-600 rounded-lg bg-transparent text-base focus:ring-blue-500 focus:border-blue-500" name="choice">
+                <input type="text" id="inputJawaban" class="block w-full p-4 text-gray-600 border border-blue-600 rounded-lg bg-transparent text-base focus:ring-blue-500 focus:border-blue-500" name="choice">
             </div>
           </form>
           <div id="msg" class="absolute w-full -bottom-12 text-red-600"></div>
@@ -75,7 +59,6 @@
 	</section>
 	<!-- hero section end -->
 
-  <!-- <a id="response" class="absolute bottom-28 left-4 right-4 bg-blue-600 text-white font-bold py-4 text-center rounded-lg shadow-lg backdrop-blur cursor-pointer">ambil data</a> -->
   <button id="submitButton" class="absolute bottom-6 left-4 right-4 bg-blue-600 text-white font-bold py-4 text-center rounded-lg shadow-lg backdrop-blur cursor-pointer">Selanjutnya</button>
 	
 	<script src="../public/js/quiz.js"></script>
