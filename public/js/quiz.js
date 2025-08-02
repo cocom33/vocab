@@ -1,6 +1,7 @@
 totalQuizUi = document.getElementById('totalQuiz')
 currentQuizUi = document.getElementById('currentQuiz')
 question = document.getElementById('question')
+romanji = document.getElementById('romanji')
 inputSelect = document.getElementById('inputSelect')
 inputText = document.getElementById('inputText')
 buttonChangeAnswer = document.getElementById('buttonChangeAnswer')
@@ -26,7 +27,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     // get data kanji dan data local 
     if (getQuiz == null) {
       const resQuiz = await listKanji();
-      getQuiz = JSON.stringify(resQuiz)
+      getQuiz = JSON.stringify(shuffleQuiz(resQuiz))
       localStorage.setItem('allCurrentQuiz', getQuiz);
     }
     if (typeQuestion == null) {
@@ -47,6 +48,7 @@ document.addEventListener('DOMContentLoaded', async function () {
     currentQuizUi.innerHTML = parseInt(currentQuiz)+1
     totalQuiz = quiz.length
     question.innerHTML = typeQuestion == 'kanji' ? quiz[currentQuiz]["kanji"] : quiz[currentQuiz]["id"]
+    romanji.innerHTML = quiz[currentQuiz]["jp"]
     choice = getRandomKanji(quiz, currentQuiz, typeQuestion == "id" ? "kanji" : "id")
     
     // set function 
@@ -102,6 +104,7 @@ function storeAnswer() {
     currentQuizUi.innerHTML = currentQuiz+1
     localStorage.setItem('currentQuiz', currentQuiz)
     question.innerHTML = typeQuestion == 'kanji' ? quiz[currentQuiz]["kanji"] : quiz[currentQuiz]["id"]
+    romanji.innerHTML = quiz[currentQuiz]["jp"]
     choice = getRandomKanji(quiz, currentQuiz, typeQuestion == "id" ? "kanji" : "id")
     generateKanjiChoices(choice)
   } else {
@@ -146,22 +149,13 @@ function checkAnswer(currentQuiz) {
     return false;
   }
   
-  if (typeQuestion == "kanji") {
-    if (quiz[currentQuiz]["id"] == input) {
-      correctQuiz++
-      localStorage.setItem('correctQuiz', correctQuiz)
-    } else {
-      inCorrectQuiz++
-      localStorage.setItem('inCorrectQuiz', inCorrectQuiz)
-    };
+  const answerKey = typeQuestion === "kanji" ? "id" : "kanji";
+  if (quiz[currentQuiz][answerKey] === input) {
+    correctQuiz++;
+    localStorage.setItem('correctQuiz', correctQuiz);
   } else {
-    if (quiz[currentQuiz]["kanji"] == input) {
-      correctQuiz++
-      localStorage.setItem('correctQuiz', correctQuiz)
-    } else {
-      inCorrectQuiz++
-      localStorage.setItem('inCorrectQuiz', inCorrectQuiz)
-    };
+    inCorrectQuiz++;
+    localStorage.setItem('inCorrectQuiz', inCorrectQuiz);
   }
   return true
 };
@@ -182,7 +176,7 @@ function getRandomKanji(quizzes, currentQuiz, type) {
   }
 
   // Gabungkan fixedKanji dan randomKanji
-  return [fixedKanji, ...randomKanji];
+  return shuffleQuiz([fixedKanji, ...randomKanji]);
 }
 
 function generateKanjiChoices(selectedKanji) {
@@ -218,6 +212,25 @@ function generateKanjiChoices(selectedKanji) {
       li.appendChild(label);
       inputSelect.appendChild(li);
   });
+}
+
+function shuffleQuiz(quiz) {
+  let currentIndex = quiz.length;
+  let randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [quiz[currentIndex], quiz[randomIndex]] = [
+      quiz[randomIndex], quiz[currentIndex]];
+  }
+
+  return quiz;
 }
 
 function clearAll() {
