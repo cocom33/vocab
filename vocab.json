@@ -1,27 +1,247 @@
 [
   {
-    "id" : "nama 111 df",
-    "jp" : "asdfdf",
-    "kanji" : "ini kanji"
+    "id" : "manis",
+    "jp" : "あまい",
+    "kanji" : "甘い"
   },
   {
-    "id" : "ke dua",
-    "jp" : "l222",
-    "kanji" : "ini kanji 222"
+    "id" : "pahit",
+    "jp" : "にがい",
+    "kanji" : "苦い"
   },
   {
-    "id" : "33 fsgd 33",
-    "jp" : "asdfdf",
-    "kanji" : "ini kanji 3333"
+    "id" : "berat",
+    "jp" : "おもい",
+    "kanji" : "重い"
   },
   {
-    "id" : "444",
-    "jp" : "asdfdf",
-    "kanji" : "ini kanji 4444"
+    "id" : "panas",
+    "jp" : "あつい",
+    "kanji" : "熱い"
   },
   {
-    "id" : "nam55555t5t5ta",
-    "jp" : "asdfdf",
-    "kanji" : "ini kanji 5555"
+    "id" : "hangat",
+    "jp" : "あたたかい",
+    "kanji" : "暖かい"
+  },
+  {
+    "id" : "menarik",
+    "jp" : "おもしろい",
+    "kanji" : "面白い"
+  },
+  {
+    "id" : "sempit",
+    "jp" : "せまい",
+    "kanji" : "狭い"
+  },
+  {
+    "id" : "jauh",
+    "jp" : "とおい",
+    "kanji" : "遠い"
+  },
+  {
+    "id" : "sibuk",
+    "jp" : "いそがしい",
+    "kanji" : "忙しい"
+  },
+  {
+    "id" : "mudah",
+    "jp" : "やさしい",
+    "kanji" : "易しい"
+  },
+  {
+    "id" : "benci",
+    "jp" : "きらい",
+    "kanji" : "嫌い"
+  },
+  { 
+    "id" : "pedas",
+    "jp" : "からい",
+    "kanji" : "辛い"
+  },
+  {
+    "id" : "ringan",
+    "jp" : "かるい",
+    "kanji" : "かるい"
+  },
+  {
+    "id" : "dingin",
+    "jp" : "つめたい",
+    "kanji" : "冷たい"
+  },
+  {
+    "id" : "dingin",
+    "jp" : "さむい",
+    "kanji" : "寒い"
+  },
+  {
+    "id" : "sejuk",
+    "jp" : "すずしい",
+    "kanji" : "涼しい"
+  },
+  {
+    "id" : "membosankan",
+    "jp" : "つまらない",
+    "kanji" : "つまらない"
+  },
+  {
+    "id" : "luas",
+    "jp" : "ひろい",
+    "kanji" : "広い"
+  },
+  {
+    "id" : "dekat",
+    "jp" : "ちかい",
+    "kanji" : "近い"
+  },
+  {
+    "id" : "susah",
+    "jp" : "むずかしい",
+    "kanji" : "難しい"
+  },
+  {
+    "id" : "senggang",
+    "jp" : "ひま",
+    "kanji" : "暇"
+  },
+  {
+    "id" : "suka",
+    "jp" : "すき",
+    "kanji" : "好き"
+  },
+  {
+    "id" : "tinggal",
+    "jp" : "すむ",
+    "kanji" : "住む"
+  },
+  {
+    "id" : "bertugas",
+    "jp" : "つとめる",
+    "kanji" : "勤める"
+  },
+  {
+    "id" : "bekerja",
+    "jp" : "はたらく",
+    "kanji" : "働する"
+  },
+  {
+    "id" : "membuat",
+    "jp" : "つくる",
+    "kanji" : "作る"
+  },
+  {
+    "id" : "menjual",
+    "jp" : "うる",
+    "kanji" : "売る"
+  },
+  {
+    "id" : "kenal",
+    "jp" : "しる",
+    "kanji" : "知る"
+  },
+  {
+    "id" : "menikah",
+    "jp" : "けっこん する",
+    "kanji" : "結婚する"
+  },
+  {
+    "id" : "merokok",
+    "jp" : "タバコを すう",
+    "kanji" : "タバコを吸う"
+  },
+  {
+    "id" : "bangun",
+    "jp" : "おきる",
+    "kanji" : "起きる"
+  },
+  {
+    "id" : "tidur",
+    "jp" : "ねる",
+    "kanji" : "寝る"
+  },
+  {
+    "id" : "pulang",
+    "jp" : "かえる",
+    "kanji" : "帰る"
+  },
+  {
+    "id" : "meletakkan",
+    "jp" : "おく",
+    "kanji" : "置く"
+  },
+  {
+    "id" : "bermain",
+    "jp" : "あそぶ",
+    "kanji" : "遊ぶ"
+  },
+  {
+    "id" : "mandi",
+    "jp" : "あびる",
+    "kanji" : "浴びる"
+  },
+  {
+    "id" : "menggunakan",
+    "jp" : "つかう",
+    "kanji" : "使う"
+  },
+  {
+    "id" : "memerlukan waktu",
+    "jp" : "かかる",
+    "kanji" : "かかる"
+  },
+  {
+    "id" : "membuka",
+    "jp" : "あける",
+    "kanji" : "開ける"
+  },
+  {
+    "id" : "menutup",
+    "jp" : "しめる",
+    "kanji" : "締める"
+  },
+  {
+    "id" : "menyalakan",
+    "jp" : "つける",
+    "kanji" : "付ける"
+  },
+  {
+    "id" : "mematikan",
+    "jp" : "けす",
+    "kanji" : "消す"
+  },
+  {
+    "id" : "buru buru",
+    "jp" : "いそぐ",
+    "kanji" : "急ぐ"
+  },
+  {
+    "id" : "menelpon",
+    "jp" : "かける",
+    "kanji" : "掛ける"
+  },
+  {
+    "id" : "mengunci",
+    "jp" : "かける",
+    "kanji" : "掛ける"
+  },
+  {
+    "id" : "terbuka",
+    "jp" : "あく",
+    "kanji" : "開く"
+  },
+  {
+    "id" : "tertutup",
+    "jp" : "しまる",
+    "kanji" : "締まる"
+  },
+  {
+    "id" : "kering",
+    "jp" : "かわく",
+    "kanji" : "乾く"
+  },
+  {
+    "id" : "kosong",
+    "jp" : "すく",
+    "kanji" : "空く"
   }
 ]

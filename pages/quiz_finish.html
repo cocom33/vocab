@@ -16,8 +16,8 @@
         <div class="text-center mb-8">
           <h1 class="text-4xl md:text-5xl font-bold mb-6 text-slate-800">Selesai🎉🎉</h1>
           <p class="text-slate-800 mb-3">ini dia hasil dari quiz kamu:</p>
-          <p class="text-slate-800 font-bold text-lg mb-1">total jawaban benar: <span id="correct"></span></p>
-          <p class="text-slate-800 font-bold text-lg mb-1">total jawaban salah: <span id="incorrect"></span></p>
+          <p class="text-slate-800 font-bold text-lg mb-1">total jawaban benar: <span id="correct">-</span></p>
+          <p class="text-slate-800 font-bold text-lg mb-1">total jawaban salah: <span id="incorrect">-</span></p>
         </div>
         
         <a href="./quiz_start.html" id="tryAgain" onclick="tryAgain();" class="px-5 py-2 bg-blue-600 text-white rounded-lg hover:bg-transparent border border-transparent hover:border-blue-600 hover:text-blue-600 font-medium duration-300">kerjakan lagi!</a>
@@ -32,8 +32,8 @@
     document.addEventListener('DOMContentLoaded', async function () {
       try {
         // get data local 
-        correct.innerHTML = localStorage.getItem('correct')
-        incorrect.innerHTML = localStorage.getItem('incorrect')
+        correct.innerHTML = localStorage.getItem('correctQuiz')
+        incorrect.innerHTML = localStorage.getItem('inCorrectQuiz')
       } catch (error) {
           console.error('Error mengambil data:', error);
       }

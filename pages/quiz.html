@@ -26,7 +26,7 @@
 		<div class="container mx-auto">
 			<div class="flex flex-col pb-24 items-center justify-center min-h-screen">
         <div class="w-full max-auto md:w-2/3 text-center relative">
-          <div class="absolute right-0 top-12 p-2" id="buttonChangeQuestion">
+          <div class="absolute right-0 top-12 p-2 cursor-pointer" id="buttonChangeQuestion">
             <i class="fa-solid fa-arrows-rotate"></i>
           </div>
           <p class="text-lg font-bold mb-8 py-2 text-slate-800">Quiz <span id="currentQuiz">-</span>/<span id="totalQuiz">-</span></p>
@@ -35,8 +35,8 @@
 					<p class="text-slate-800 md:text-base">terjemahkan artinya</p>
 					<p class="text-slate-800 md:text-base mb-8">pilih atau tulis jawaban yang benar</p>
 				
-          <form action="quiz.html" id="chooseClass" class="relative">
-            <div class="absolute right-0 -top-11 p-2" id="buttonChangeAnswer">
+          <div class="relative">
+            <div class="absolute right-0 -top-11 p-2 cursor-pointer" id="buttonChangeAnswer">
               <i class="fa-solid fa-arrows-rotate"></i>
             </div>
             <ul class="grid gap-2 md:grid-cols-3 px-8 md:px-0 hidden" id="inputSelect">
@@ -50,9 +50,9 @@
               </li> -->
             </ul> 
             <div class="mb-6 px-8 hidden" id="inputText">
-                <input type="text" id="inputJawaban" class="block w-full p-4 text-gray-600 border border-blue-600 rounded-lg bg-transparent text-base focus:ring-blue-500 focus:border-blue-500" name="choice">
+                <input type="text" id="inputJawaban" class="block w-full p-4 text-gray-600 border border-blue-600 rounded-lg bg-transparent text-lg font-medium text-center" name="choice">
             </div>
-          </form>
+          </div>
           <div id="msg" class="absolute w-full -bottom-12 text-red-600"></div>
 				</div>
 			</div>
@@ -60,7 +60,7 @@
 	</section>
 	<!-- hero section end -->
 
-  <button id="submitButton" class="absolute bottom-6 left-4 right-4 bg-blue-600 text-white font-bold py-4 text-center rounded-lg shadow-lg backdrop-blur cursor-pointer">Selanjutnya</button>
+  <button id="submitButton" class="absolute bottom-2 left-2 right-2 bg-blue-600 text-white font-bold py-4 text-center rounded-lg shadow-lg backdrop-blur cursor-pointer">Selanjutnya</button>
 	
 	<script src="../public/js/quiz.js"></script>
 </body>

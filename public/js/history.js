@@ -1,7 +1,5 @@
 totalQuiz = document.getElementById('totalQuiz'); 
-
 getHistoryQuiz = localStorage.getItem('getHistoryQuiz');
-
 
 document.addEventListener('DOMContentLoaded', async function () {
   try {
@@ -34,7 +32,7 @@ function renderTable(data) {
       <td class="px-6 py-4">${item.inCorrect}</td>
       <td class="px-6 py-4">${item.totalQuiz}</td>
       <td class="px-6 py-4 text-right">
-        <a href="#" class="font-medium text-blue-600 hover:underline">del</a>
+        <a href="#" class="font-medium text-blue-600 hover:underline"><i class="fa-solid fa-trash-can text-red-600"></i></a>
       </td>
     `;
 

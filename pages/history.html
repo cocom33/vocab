@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Landing Page Tailwind CSS</title>
 	<link rel="stylesheet" href="../public/css/output.css">
-	<script src="../public/js/index.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 	<!-- header start -->
@@ -24,7 +24,7 @@
 					</button>
 					
 					<nav id="nav-menu" class="">
-						<ul class="flex gap-5">
+						<ul class="flex gap-2">
 							<li class="group border border-blue-600 rounded-lg">
 								<a href="home.html" class="font-medium text-center text-blue-600 px-8 py-2 flex group-hover:bg-blue-600 duration-300 group-hover:text-white">Home</a>
 							</li>
@@ -47,8 +47,8 @@
 					<h1 class="text-4xl md:text-5xl font-bold mb-6 text-slate-800">History!</h1>
 					<p class="text-slate-800 text-sm md:text-base mb-8">summary quiz yang sudah kamu kerjakan!</p>
 				
+          <p class="text-slate-800 text-start mb-3">kamu sudah mengerjakan : <span id="totalQuiz"></span> quiz</p>
           <div class="relative w-full overflow-x-auto shadow-md sm:rounded-lg">
-            <p class="text-slate-800 text-start mb-3">kamu sudah mengerjakan : <span id="totalQuiz"></span> quiz</p>
             <table class="w-full text-sm text-left rtl:text-right text-gray-500">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-200">
                     <tr>
@@ -93,7 +93,7 @@
 	</section>
 	<!-- hero section end -->
 
-  <a href="home.html" class="absolute bottom-6 left-4 right-4 md:width-40 bg-blue-600 text-white font-bold py-4 text-center rounded-lg shadow-lg backdrop-blur cursor-pointer">Kembali</a>
+  <a href="home.html" class="absolute bottom-2 left-2 right-2 md:width-40 bg-blue-600 text-white font-bold py-4 text-center rounded-lg shadow-lg backdrop-blur cursor-pointer">Kembali</a>
 	
 	<script src="../public/js/history.js"></script>
 </body>
