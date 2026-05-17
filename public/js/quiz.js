@@ -15,6 +15,7 @@ getHistoryQuiz = localStorage.getItem('getHistoryQuiz');
 currentQuiz = parseInt(localStorage.getItem('currentQuiz')) || 0;
 correctQuiz = parseInt(localStorage.getItem('correctQuiz')) || 0;
 inCorrectQuiz = parseInt(localStorage.getItem('inCorrectQuiz')) || 0;
+choiceAmount = parseInt(localStorage.getItem('choiceAmount')) || 3;
 
 thisHistory = []
 totalQuiz = 1
@@ -34,13 +35,17 @@ document.addEventListener('DOMContentLoaded', async function () {
       localStorage.setItem('typeQuestion', 'kanji');
       typeQuestion = 'kanji'
     }
+    console.log("type answer " + typeAnswer)
     if (typeAnswer == null) localStorage.setItem('typeAnswer', 'select');
     if (currentQuiz == 0) localStorage.setItem('currentQuiz', 0);
     if (correctQuiz == 0) localStorage.setItem('correctQuiz', 0);
     if (inCorrectQuiz == 0) localStorage.setItem('inCorrectQuiz', 0);
     if (getHistoryQuiz == null) localStorage.setItem('getHistoryQuiz', null);
     
-    typeAnswer == 'select' ? inputSelect.classList.remove("hidden") : inputText.classList.remove("hidden")
+    if (typeAnswer == 'text') {
+      inputSelect.classList.add("hidden") 
+      inputText.classList.remove("hidden")
+    }
     
     // set quiz
     quiz = JSON.parse(getQuiz)
@@ -67,11 +72,19 @@ async function listKanji() {
   return await response.json();
 }
 
+function resetQuiz() {
+  localStorage.removeItem('allCurrentQuiz');
+  localStorage.removeItem('currentQuiz');
+  localStorage.removeItem('correctQuiz');
+  localStorage.removeItem('inCorrectQuiz');
+  window.location.href = "./quiz_start.html"
+}
+
 function changeQuestion() {
   let getLocalTypeQuestion = localStorage.getItem('typeQuestion') || 'kanji';
   typeQuestion = getLocalTypeQuestion === 'kanji' ? 'id' : 'kanji';
   localStorage.setItem('typeQuestion', typeQuestion);
-  question.innerHTML = typeQuestion == 'kanji' ? quiz[currentQuiz -1]["kanji"] : quiz[currentQuiz -1]["id"]
+  question.innerHTML = typeQuestion == 'kanji' ? quiz[currentQuiz]["kanji"] : quiz[currentQuiz]["id"]
   choice = getRandomKanji(quiz, currentQuiz, typeQuestion == "id" ? "kanji" : "id")
   generateKanjiChoices(choice)
 }
@@ -169,7 +182,7 @@ function getRandomKanji(quizzes, currentQuiz, type) {
   const availableData = quizzes.filter((item, index) => index !== currentQuiz); // Hapus item yang sudah dipilih
 
   // Ambil dua data acak dari availableData
-  while (randomKanji.length < 2) {
+  while (randomKanji.length < choiceAmount-1) {
     const randomIndex = Math.floor(Math.random() * availableData.length);
     randomKanji.push(availableData[randomIndex][type]);
     availableData.splice(randomIndex, 1); // Hapus item yang sudah dipilih
@@ -185,7 +198,7 @@ function generateKanjiChoices(selectedKanji) {
   // Tambahkan pilihan ke dalam daftar
   selectedKanji.forEach((kanji, index) => {
       const li = document.createElement("li");
-      li.classList.add("relative", "peer");
+      li.classList.add("relative", "peer", "w-full", "md:w-[32%]");
 
       const input = document.createElement("input");
       input.type = "radio";
@@ -202,7 +215,7 @@ function generateKanjiChoices(selectedKanji) {
           "peer-checked:border-blue-600", "peer-checked:bg-blue-600", "peer-checked:text-white",
           "hover:text-gray-600", "hover:bg-blue-400"
       );
-
+      
       const labelText = document.createElement("div");
       labelText.classList.add("w-full", "text-center", "text-lg", "font-semibold");
       labelText.textContent = kanji; // Menampilkan kanji sebagai pilihan

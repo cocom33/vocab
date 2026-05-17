@@ -679,8 +679,8 @@ video {
   bottom: 0px;
 }
 
-.bottom-6 {
-  bottom: 1.5rem;
+.bottom-2 {
+  bottom: 0.5rem;
 }
 
 .end-1 {
@@ -695,8 +695,8 @@ video {
   left: 3rem;
 }
 
-.left-4 {
-  left: 1rem;
+.left-2 {
+  left: 0.5rem;
 }
 
 .right-0 {
@@ -705,6 +705,10 @@ video {
 
 .right-12 {
   right: 3rem;
+}
+
+.right-2 {
+  right: 0.5rem;
 }
 
 .right-4 {
@@ -733,30 +737,6 @@ video {
 
 .top-60 {
   top: 15rem;
-}
-
-.bottom-4 {
-  bottom: 1rem;
-}
-
-.left-3 {
-  left: 0.75rem;
-}
-
-.right-3 {
-  right: 0.75rem;
-}
-
-.bottom-2 {
-  bottom: 0.5rem;
-}
-
-.left-2 {
-  left: 0.5rem;
-}
-
-.right-2 {
-  right: 0.5rem;
 }
 
 .isolate {
@@ -1025,6 +1005,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
 }
 
 .flex-shrink {
@@ -1565,10 +1549,6 @@ video {
   gap: 0.5rem;
 }
 
-.gap-3 {
-  gap: 0.75rem;
-}
-
 .space-x-2 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
@@ -2071,6 +2051,16 @@ video {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+.bg-red-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity, 1));
+}
+
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity, 1));
+}
+
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -2256,6 +2246,11 @@ video {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .pb-24 {
@@ -3083,12 +3078,20 @@ video {
     width: 420px;
   }
 
+  .md\:w-\[32\%\] {
+    width: 32%;
+  }
+
   .md\:grid-cols-3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .md\:flex-row {
     flex-direction: row;
+  }
+
+  .md\:flex-col {
+    flex-direction: column;
   }
 
   .md\:justify-start {
@@ -3101,6 +3104,14 @@ video {
 
   .md\:gap-0 {
     gap: 0px;
+  }
+
+  .md\:justify-self-start {
+    justify-self: start;
+  }
+
+  .md\:justify-self-end {
+    justify-self: end;
   }
 
   .md\:px-0 {
@@ -3155,5 +3166,15 @@ video {
     .dark\:lg\:hover\:\[paint-order\:markers\]:hover {
       paint-order: markers;
     }
+  }
+}
+
+@media (min-width: 768px) {
+  .\[\&\>\*\:last-child\:nth-child\(3n\+2\)\]\:md\:justify-self-start>*:last-child:nth-child(3n+2) {
+    justify-self: start;
+  }
+
+  .\[\&\>\*\:nth-last-child\(2\)\:nth-child\(3n\+1\)\]\:md\:justify-self-end>*:nth-last-child(2):nth-child(3n+1) {
+    justify-self: end;
   }
 }
