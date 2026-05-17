@@ -14,7 +14,10 @@
 		<div class="container mx-auto">
 			<div class="flex justify-between items-center relative">
 				<div class="px-4">
-					<a href="home.html" class="font-bold text-xl text-sky-800 block py-6">value!</a>
+					<a href="home.html" class="font-bold text-xl text-sky-800 block py-6">Quizzy!</a>
+				</div>
+				<div class="px-4">
+					<button onclick="resetQuiz()" class="bg-red-600 text-white font-bold text-xl p-2 text-center rounded-lg shadow-lg backdrop-blur cursor-pointer"><i class="fa-solid fa-rotate"></i></button>
 				</div>
 			</div>
 		</div>
@@ -39,7 +42,7 @@
             <div class="absolute right-0 -top-11 p-2 cursor-pointer" id="buttonChangeAnswer">
               <i class="fa-solid fa-arrows-rotate"></i>
             </div>
-            <ul class="grid gap-2 md:grid-cols-3 px-8 md:px-0 hidden" id="inputSelect">
+            <ul class="flex flex-wrap gap-2 md:flex-cols-3 justify-center items-center px-8 md:px-0" id="inputSelect">
               <!-- <li>
                 <input type="radio" id="kelas-1" name="choice" value="kelas-1" class="opacity-0 absolute peer" />
                 <label for="kelas-1" class="inline-flex items-center justify-between w-full py-3 text-gray-500 bg-transparent border border-blue-600 rounded-lg cursor-pointer peer-checked:border-blue-600 peer-checked:bg-blue-600 peer-checked:text-white hover:text-gray-600 hover:bg-blue-400">                           
